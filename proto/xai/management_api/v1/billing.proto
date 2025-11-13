@@ -212,9 +212,9 @@ message MonthlyInvoiceBundle {
   // Prepaid token on file to be spent.
   prod_charger.Cent prepaid_tokens_to_spend = 35;
   // The billing items csv file suffix, used by xAI processes.
-  optional string billing_items_csv_asset_key_suffix = 40;
+  string billing_items_csv_asset_key_suffix = 40;
   // The billing items corrections csv file suffix, used by xAI processes.
-  optional string corrections_csv_asset_key_suffix = 50;
+  string corrections_csv_asset_key_suffix = 50;
 }
 
 message PrepaidInvoiceBundle {}
@@ -317,24 +317,24 @@ message PrepaidBalanceChange {
   // The reason for the change
   ChangeOrigin change_origin = 20;
   // Status of the top up.
-  optional TopUpStatus topup_status = 30;
+  TopUpStatus topup_status = 30;
   // Amount in USD cents.
   prod_charger.Cent amount = 40;
 
   // Invoice ID.
-  optional string invoice_id = 50;
+  string invoice_id = 50;
   // Invoice number.
-  optional string invoice_number = 51;
+  string invoice_number = 51;
 
   // Creation time of the invoice.
   google.protobuf.Timestamp create_time = 60;
 
   // Calendar year the purchase is made in.
-  optional int32 spend_bp_key_year = 70;
+  int32 spend_bp_key_year = 70;
   // Calendar month the purchase is made in.
-  optional int32 spend_bp_key_month = 80;
+  int32 spend_bp_key_month = 80;
   // Creation timestamp.
-  optional google.protobuf.Timestamp create_ts = 85;
+  google.protobuf.Timestamp create_ts = 85;
 
   reserved 90;
 }
@@ -380,7 +380,7 @@ message GetSpendingLimitsReq {
 // Postpaid monthly spending limit.
 message SpendingLimits {
   // Optional spending limit override set by xAI staff.
-  optional prod_charger.Cent hard_sl_override = 1;
+  prod_charger.Cent hard_sl_override = 1;
 
   // Automatically calculated hard spending limit (the maximum monthly invoiced spending limit that can be set by the
   // user).
@@ -391,7 +391,7 @@ message SpendingLimits {
   prod_charger.Cent effective_hard_sl = 5;
 
   // The soft spending limit previously set by customer. Zero if it has not been set.
-  optional prod_charger.Cent soft_sl = 3;
+  prod_charger.Cent soft_sl = 3;
 
   // Final monthly invoiced spending limit that xAI API will enforce.
   prod_charger.Cent effective_sl = 4;

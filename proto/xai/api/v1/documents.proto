@@ -22,13 +22,13 @@ message SearchRequest {
   // The number of chunks to return.
   // Will always return the top matching chunks.
   // Optional, defaults to 10
-  optional int32 limit = 3;
+  int32 limit = 3;
 
   // The ranking metric to use for the search. Defaults to RANK_METRIC_L2_DISTANCE.
-  optional RankingMetric ranking_metric = 4;
+  RankingMetric ranking_metric = 4;
 
   // User-defined instructions to be included in the search query. Defaults to generic search instructions.
-  optional string instructions = 5;
+  string instructions = 5;
 }
 
 // SearchResponse message contains the results of a document search operation.

@@ -27,7 +27,7 @@ message SampleTextRequest {
   // The number of completions to create concurrently. A single completion will
   // be generated if the parameter is unset. Each completion is charged at the
   // same rate. You can generate at most 128 concurrent completions.
-  optional int32 n = 8;
+  int32 n = 8;
 
   // The maximum number of tokens to sample. If unset, the model samples until
   // one of the following stop-conditions is reached:
@@ -36,14 +36,14 @@ message SampleTextRequest {
   //
   // We recommend choosing a reasonable value to reduce the risk of accidental
   // long-generations that consume many tokens.
-  optional int32 max_tokens = 7;
+  int32 max_tokens = 7;
 
   // A random seed used to make the sampling process deterministic. This is
   // provided in a best-effort basis without guarantee that sampling is 100%
   // deterministic given a seed. This is primarily provided for short-lived
   // testing purposes. Given a fixed request and seed, the answers may change
   // over time as our systems evolve.
-  optional int32 seed = 11;
+  int32 seed = 11;
 
   // String patterns that will cause the sampling procedure to stop prematurely
   // when observed.
@@ -65,7 +65,7 @@ message SampleTextRequest {
   // conduct the same experiment at a temperature of 2, virtually no two answers
   // will be identical. Note that increasing the temperature will cause
   // the model to hallucinate more strongly.
-  optional float temperature = 14;
+  float temperature = 14;
 
   // A number between 0 and 1 controlling the likelihood of the model to use
   // less-common answers. Recall that the model produces a probability for
@@ -76,12 +76,12 @@ message SampleTextRequest {
   // For example, if we set `top_p = 0.9`, then the set of tokens we actually
   // sample from, will have a probability mass of at least 90%. In practice,
   // low values will make the model more deterministic.
-  optional float top_p = 15;
+  float top_p = 15;
 
   // Number between -2.0 and 2.0.
   // Positive values penalize new tokens based on their existing frequency in the text so far,
   // decreasing the model's likelihood to repeat the same line verbatim.
-  optional float frequency_penalty = 13;
+  float frequency_penalty = 13;
 
   // Whether to return log probabilities of the output tokens or not.
   // If true, returns the log probabilities of each output token returned in the content of message.
@@ -89,12 +89,12 @@ message SampleTextRequest {
 
   // Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.
   // Not supported by grok-3 models.
-  optional float presence_penalty = 9;
+  float presence_penalty = 9;
 
   // An integer between 0 and 8 specifying the number of most likely tokens to return at each token position,
   // each with an associated log probability.
   // logprobs must be set to true if this parameter is used.
-  optional int32 top_logprobs = 6;
+  int32 top_logprobs = 6;
 
   // An opaque string supplied by the API client (customer) to identify a user.
   // The string will be stored in the logs and can be used in customer service

@@ -22,7 +22,7 @@ message GenerateImageRequest {
   string model = 2;
 
   // Number of images to generate. Allowed values are [1, 10].
-  optional int32 n = 3;
+  int32 n = 3;
 
   // An opaque string supplied by the API client (customer) to identify a user.
   // The string will be stored in the logs and can be used in customer service
